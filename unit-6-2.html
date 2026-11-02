@@ -52,7 +52,7 @@ main{max-width:920px;margin:0 auto;padding:18px 16px 40px}
 .tip{margin-top:18px;background:#fff;border-radius:16px;padding:12px 14px;color:var(--muted);font-size:15px;font-weight:600;text-align:center}
 
 /* Common */
-.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin:14px 0}
 .btn{background:#fff;border-radius:18px;padding:14px 22px;font-size:20px;font-weight:800;box-shadow:var(--sh)}
 .btn:active,.opt:active,.tile:active{transform:translateY(3px)}
 .btn.pri{background:var(--pri);color:#fff}
@@ -96,6 +96,32 @@ main{max-width:920px;margin:0 auto;padding:18px 16px 40px}
 
 .warn{background:#FFF1D6;border:3px solid #FFB347;border-radius:20px;padding:16px;text-align:center;font-size:17px;font-weight:600;line-height:1.5}
 .warn b:first-child{display:block;font-size:20px;margin-bottom:6px;color:#C2410C}
+
+/* Bố cục điện thoại */
+.fcrow{flex-wrap:nowrap;gap:8px;margin:10px 0}
+.fcrow .btn{flex:1 1 0;min-width:0;white-space:nowrap;padding:14px 8px;max-width:220px}
+.nav{flex:none}
+.card3d{height:min(420px,max(230px,calc(100vh - 360px)))}
+@media (max-width:600px){
+  .top{padding:calc(6px + env(safe-area-inset-top)) 12px 6px;gap:10px}
+  .top .home{width:44px;height:44px;font-size:22px;border-radius:14px}
+  .top .ttl{font-size:16px}
+  .stars{padding:8px 12px;font-size:17px}
+  main{padding:10px 12px 30px}
+  .chips{padding-bottom:6px}
+  .chip{padding:8px 12px;font-size:14px}
+  .fcrow .btn{font-size:16px;padding:12px 4px;border-radius:16px}
+  .nav{width:50px;height:50px;font-size:20px}
+  .big-e{font-size:68px}
+  .en{font-size:34px} .en.long{font-size:22px}
+  .vi{font-size:28px}
+  .ex{font-size:15px}
+  .opt{font-size:18px;padding:14px 8px;min-height:66px}
+  .bigsnd{width:96px;height:96px;font-size:44px}
+  .btn{font-size:18px;padding:12px 18px}
+  .tfbtn{padding:20px 8px;font-size:24px}
+  .qbox .e{font-size:52px} .qbox .vi{font-size:26px}
+}
 
 /* List */
 .grp{margin:18px 0 8px;font-size:22px;font-weight:900;color:var(--gc)}
@@ -478,12 +504,12 @@ function renderFC(autoSay){
         <div class="en sm">${w.en}${tyS(w)}</div>${w.ex ? `<div class="ex">📌 ${w.ex}${w.exVi ? `<br><i>${w.exVi}</i>` : ''}</div>` : ''}${w.note ? `<div class="ex">🧠 ${w.note}</div>` : ''}
       </div>
     </div></div>
-    <div class="row">
+    <div class="row fcrow">
       <button class="btn snd" id="say">🔊 Nghe</button>
-      <button class="btn snd" id="slow">🐢 Đọc chậm</button>
-      ${w.ex ? '<button class="btn snd" id="sayEx">📌 Nghe ví dụ</button>' : ''}
+      <button class="btn snd" id="slow">🐢 Chậm</button>
+      ${w.ex ? '<button class="btn snd" id="sayEx">📌 Ví dụ</button>' : ''}
     </div>
-    <div class="row">
+    <div class="row fcrow">
       <button class="nav" id="prev">◀</button>
       <button class="btn bad" id="no">🔁 Học lại</button>
       <button class="btn ok" id="yes">✅ Đã thuộc</button>
